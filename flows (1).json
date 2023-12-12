@@ -1,0 +1,288 @@
+[
+    {
+        "id": "fa4c2447a44efb1b",
+        "type": "tab",
+        "label": "Login form",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4aa5821971224b38",
+        "type": "change",
+        "z": "fa4c2447a44efb1b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "user_data",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 120,
+        "wires": [
+            [
+                "3a88ef1c51ff5338",
+                "edd904db8e0f87f7"
+            ]
+        ]
+    },
+    {
+        "id": "048d11f43b86a8b7",
+        "type": "inject",
+        "z": "fa4c2447a44efb1b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "c5b54ac972e702ec"
+            ]
+        ]
+    },
+    {
+        "id": "5972a87c6c4fe282",
+        "type": "ui_form",
+        "z": "fa4c2447a44efb1b",
+        "name": "Login Form",
+        "label": "Login",
+        "group": "48f1376d6fc7ad83",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Username",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Password",
+                "value": "password",
+                "type": "password",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "password": ""
+        },
+        "payload": "",
+        "submit": "Login",
+        "cancel": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "splitLayout": false,
+        "className": "",
+        "x": 90,
+        "y": 260,
+        "wires": [
+            [
+                "10a35bb9cc257895",
+                "edd904db8e0f87f7"
+            ]
+        ]
+    },
+    {
+        "id": "10a35bb9cc257895",
+        "type": "debug",
+        "z": "fa4c2447a44efb1b",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "edd904db8e0f87f7",
+        "type": "function",
+        "z": "fa4c2447a44efb1b",
+        "name": "Check Credentials",
+        "func": "var username_login = msg.payload.name;\nvar password_login = msg.payload.password;\nvar sqliteResult = global.get('user_data') || [];\n// Kiểm tra xem dữ liệu đã lấy được không\nif (sqliteResult.length > 0) {\n    // Tìm kiếm người dùng trong dữ liệu\n    var user = sqliteResult.find(item => item.name === username_login && item.password.toString() === password_login);\n\n    if (user) {\n        return { payload: true };\n    } else {\n        return { payload: false };\n    }\n} else {\n    return { payload: false };\n}\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 260,
+        "wires": [
+            [
+                "5bebd6a28710a399"
+            ]
+        ]
+    },
+    {
+        "id": "5bebd6a28710a399",
+        "type": "switch",
+        "z": "fa4c2447a44efb1b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 440,
+        "y": 400,
+        "wires": [
+            [
+                "99a489eee3d826ee"
+            ],
+            [
+                "b424f74c4f77e389"
+            ]
+        ]
+    },
+    {
+        "id": "99a489eee3d826ee",
+        "type": "debug",
+        "z": "fa4c2447a44efb1b",
+        "name": "Authentication Successful",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "b424f74c4f77e389",
+        "type": "debug",
+        "z": "fa4c2447a44efb1b",
+        "name": "Authentication Failed",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "3a88ef1c51ff5338",
+        "type": "debug",
+        "z": "fa4c2447a44efb1b",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "be46b8257bc4bdfc",
+        "type": "debug",
+        "z": "fa4c2447a44efb1b",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "c5b54ac972e702ec",
+        "type": "sqlite",
+        "z": "fa4c2447a44efb1b",
+        "mydb": "84945b1882ef239f",
+        "sqlquery": "fixed",
+        "sql": "SELECT * FROM listuser ",
+        "name": "",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "4aa5821971224b38",
+                "be46b8257bc4bdfc"
+            ]
+        ]
+    },
+    {
+        "id": "48f1376d6fc7ad83",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "65c55bf97729b295",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "84945b1882ef239f",
+        "type": "sqlitedb",
+        "db": "/home/pi/Desktop/sqlite/user.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "65c55bf97729b295",
+        "type": "ui_tab",
+        "name": "Login",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

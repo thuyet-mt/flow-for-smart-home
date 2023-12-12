@@ -1,0 +1,2502 @@
+[
+    {
+        "id": "68567cd3aa39e20b",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0efd1a47901efce8",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/bme280/temperature",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 80,
+        "wires": [
+            [
+                "93aa47fb2ddf1431",
+                "bfb68e2702c7ff84",
+                "87007119aa83e3ae",
+                "e7e24335f4a66068",
+                "e71f497da1b3241f",
+                "c49d87072916ed98"
+            ]
+        ]
+    },
+    {
+        "id": "9fe18ea1cf12b9dd",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/bme280/humidity",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1300,
+        "y": 1140,
+        "wires": [
+            [
+                "45455ff9d8ca85ac",
+                "c88ddf499894b0bc",
+                "6e5e63d28695e827",
+                "c40345e9f8f5a9e4",
+                "ed9a204c0da9ae2e"
+            ]
+        ]
+    },
+    {
+        "id": "d02ca5f8f786ed92",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/bme280/pressure",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 1140,
+        "wires": [
+            [
+                "3ced43e2bbd5728d",
+                "e57697ca41541203",
+                "3c35d6e81b4c05a6",
+                "3f697beac4250172",
+                "0772d71d44f14152"
+            ]
+        ]
+    },
+    {
+        "id": "e7e24335f4a66068",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c40345e9f8f5a9e4",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1610,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "3f697beac4250172",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "93aa47fb2ddf1431",
+        "type": "ui_gauge",
+        "z": "68567cd3aa39e20b",
+        "name": "Temperature Gauge",
+        "group": "a83cb4ee1a8ade7d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 600,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "45455ff9d8ca85ac",
+        "type": "ui_gauge",
+        "z": "68567cd3aa39e20b",
+        "name": "Humidity gauge",
+        "group": "fe7c5bf40ec5e82a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#9ac5c6",
+            "#416ec8",
+            "#0a33ae"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1620,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "c88ddf499894b0bc",
+        "type": "ui_chart",
+        "z": "68567cd3aa39e20b",
+        "name": "Humidity Chart",
+        "group": "fe7c5bf40ec5e82a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#0c5488",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#db2424",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1620,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ced43e2bbd5728d",
+        "type": "ui_gauge",
+        "z": "68567cd3aa39e20b",
+        "name": "Pressure Gauge",
+        "group": "c901dbb784a23449",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "hPa",
+        "format": "{{value}}",
+        "min": "950",
+        "max": "1100",
+        "colors": [
+            "#f4ff5c",
+            "#e6b400",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 580,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "e57697ca41541203",
+        "type": "ui_chart",
+        "z": "68567cd3aa39e20b",
+        "name": "Pressure chart",
+        "group": "c901dbb784a23449",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#e9e216",
+            "#aec7e8",
+            "#ff7f0e",
+            "#293829",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 580,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bfb68e2702c7ff84",
+        "type": "ui_chart",
+        "z": "68567cd3aa39e20b",
+        "name": "Temperature Chart",
+        "group": "a83cb4ee1a8ade7d",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#b31e1e",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#c91d1d",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 590,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3c35d6e81b4c05a6",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "msg.payload = [{\n    pressure: Number(msg.payload)\n},\n{\n    sensor: \"BME280\",\n    device: \"ESP32\",\n    room: \"office\"\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 1260,
+        "wires": [
+            [
+                "98b0fa44afe70d91"
+            ]
+        ]
+    },
+    {
+        "id": "87007119aa83e3ae",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "msg.payload = [{\n    temperature: Number (msg.payload)\n},\n{\n    sensor: \"BME280\",\n    device: \"ESP32\",\n    room: \"office\"\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "e538cf91562d8b1c"
+            ]
+        ]
+    },
+    {
+        "id": "6e5e63d28695e827",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "msg.payload = [{\n    humidity: Number(msg.payload)\n},\n{\n    sensor: \"BME280\",\n    device: \"ESP32\",\n    room: \"office\"\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1600,
+        "y": 1260,
+        "wires": [
+            [
+                "4b20b7626f6afdde"
+            ]
+        ]
+    },
+    {
+        "id": "db63204306c13a24",
+        "type": "ui_switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "label": "Đèn 4",
+        "tooltip": "Controls GPIO 4",
+        "group": "09490d389aa29afc",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1370,
+        "y": 260,
+        "wires": [
+            [
+                "522c487328ed2e43"
+            ]
+        ]
+    },
+    {
+        "id": "522c487328ed2e43",
+        "type": "mqtt out",
+        "z": "68567cd3aa39e20b",
+        "name": "GPIO 4",
+        "topic": "esp/digital/4",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0776bdc38d698101",
+        "x": 1680,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ab3615be1e25db1c",
+        "type": "ui_switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "label": "Đèn 5",
+        "tooltip": "Controls GPIO 5",
+        "group": "09490d389aa29afc",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1370,
+        "y": 440,
+        "wires": [
+            [
+                "5b2d5f5de55d7630"
+            ]
+        ]
+    },
+    {
+        "id": "5b2d5f5de55d7630",
+        "type": "mqtt out",
+        "z": "68567cd3aa39e20b",
+        "name": "GPIO 5",
+        "topic": "esp/digital/5",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0776bdc38d698101",
+        "x": 1680,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "54284ac9491ce48c",
+        "type": "ui_switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "label": "Quạt 18",
+        "tooltip": "Controls GPIO 18",
+        "group": "09490d389aa29afc",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1380,
+        "y": 20,
+        "wires": [
+            [
+                "fce2369d696ed52c"
+            ]
+        ]
+    },
+    {
+        "id": "fce2369d696ed52c",
+        "type": "mqtt out",
+        "z": "68567cd3aa39e20b",
+        "name": "GPIO 18",
+        "topic": "esp/digital/18",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0776bdc38d698101",
+        "x": 2340,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "56ff9dca962919a6",
+        "type": "ui_switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "label": "Cửa 19",
+        "tooltip": "Controls GPIO 19",
+        "group": "09490d389aa29afc",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1380,
+        "y": 620,
+        "wires": [
+            [
+                "2c1e3293175edbbe"
+            ]
+        ]
+    },
+    {
+        "id": "2c1e3293175edbbe",
+        "type": "mqtt out",
+        "z": "68567cd3aa39e20b",
+        "name": "GPIO 19",
+        "topic": "esp/digital/19",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0776bdc38d698101",
+        "x": 1660,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "87b2de510afa445e",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "msg.payload = [{\n    state: msg.payload\n},\n{\n    device: \"ESP32\",\n    gpio: \"4\",\n    room: \"office\"\n}];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1800,
+        "y": 320,
+        "wires": [
+            [
+                "79c44223bba469b5"
+            ]
+        ]
+    },
+    {
+        "id": "82585e8a286eae48",
+        "type": "change",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1620,
+        "y": 320,
+        "wires": [
+            [
+                "87b2de510afa445e"
+            ]
+        ]
+    },
+    {
+        "id": "04ef65877802be34",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "msg.payload = [{\n    state: msg.payload\n},\n{\n    device: \"ESP32\",\n    gpio: \"5\",\n    room: \"office\"\n}];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1800,
+        "y": 500,
+        "wires": [
+            [
+                "58dd9881c2c5e06b"
+            ]
+        ]
+    },
+    {
+        "id": "263b32d11093387e",
+        "type": "change",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1620,
+        "y": 500,
+        "wires": [
+            [
+                "04ef65877802be34"
+            ]
+        ]
+    },
+    {
+        "id": "260284e6511421b2",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "msg.payload = [{\n    state: msg.payload\n},\n{\n    device: \"ESP32\",\n    gpio: \"18\",\n    room: \"office\"\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1800,
+        "y": 180,
+        "wires": [
+            [
+                "be4bfca32e3bc49c"
+            ]
+        ]
+    },
+    {
+        "id": "be4bfca32e3bc49c",
+        "type": "influxdb out",
+        "z": "68567cd3aa39e20b",
+        "influxdb": "bc4ab5cb2a050021",
+        "name": "",
+        "measurement": "readings",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "Raspi Server Database",
+        "bucket": "ESP32",
+        "x": 2030,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6bd5840d998b041e",
+        "type": "change",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1600,
+        "y": 180,
+        "wires": [
+            [
+                "260284e6511421b2",
+                "1a4eb1596185c975"
+            ]
+        ]
+    },
+    {
+        "id": "232ffcb15c09ee59",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "msg.payload = [{\n    state: msg.payload\n},\n{\n    device: \"ESP32\",\n    gpio: \"19\",\n    room: \"office\"\n}];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1800,
+        "y": 700,
+        "wires": [
+            [
+                "6ad4a403282a06b8"
+            ]
+        ]
+    },
+    {
+        "id": "c01831433e6b6087",
+        "type": "change",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1620,
+        "y": 700,
+        "wires": [
+            [
+                "232ffcb15c09ee59"
+            ]
+        ]
+    },
+    {
+        "id": "da6b7bd080812a10",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/digital/4",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1390,
+        "y": 320,
+        "wires": [
+            [
+                "82585e8a286eae48"
+            ]
+        ]
+    },
+    {
+        "id": "56ccbcdc646f4ab4",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/digital/5",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1390,
+        "y": 500,
+        "wires": [
+            [
+                "263b32d11093387e"
+            ]
+        ]
+    },
+    {
+        "id": "63441e5e3580eba8",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/digital/18",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1370,
+        "y": 180,
+        "wires": [
+            [
+                "6bd5840d998b041e"
+            ]
+        ]
+    },
+    {
+        "id": "b9b712f14c6f4dfd",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/digital/19",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1390,
+        "y": 700,
+        "wires": [
+            [
+                "c01831433e6b6087"
+            ]
+        ]
+    },
+    {
+        "id": "0c89584772d65511",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "function 2",
+        "func": "global.set(\"gmailMotionNotification\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nglobal.set(\"gmailMotionNotification\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1600,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8314335ce2a6c869",
+        "type": "e-mail",
+        "z": "68567cd3aa39e20b",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": false,
+        "token": "",
+        "secure": true,
+        "tls": true,
+        "name": "maithuyetedu@gmail.com",
+        "dname": "",
+        "x": 1970,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "cd8756842a5bbe34",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "function 1",
+        "func": "msg.payload = \"Motion detected!\";\nmsg.topic =\"Motiom detected (from Node-RED)\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1740,
+        "y": 900,
+        "wires": [
+            [
+                "8314335ce2a6c869"
+            ]
+        ]
+    },
+    {
+        "id": "4ba794c78ddbed01",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/motion/notification",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1400,
+        "y": 920,
+        "wires": [
+            [
+                "fc64aac046616779",
+                "f2e4aecbf29e341e"
+            ]
+        ]
+    },
+    {
+        "id": "fc64aac046616779",
+        "type": "switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "property": "gmailMotionNotification",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1590,
+        "y": 900,
+        "wires": [
+            [
+                "cd8756842a5bbe34"
+            ]
+        ]
+    },
+    {
+        "id": "f2e4aecbf29e341e",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1610,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "50b6e0d93ac21243",
+        "type": "ui_switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "label": "Gmail Notification",
+        "tooltip": "",
+        "group": "aa3f6f717097aced",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1390,
+        "y": 820,
+        "wires": [
+            [
+                "0c89584772d65511"
+            ]
+        ]
+    },
+    {
+        "id": "e71f497da1b3241f",
+        "type": "switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "30",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "30",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 550,
+        "y": 360,
+        "wires": [
+            [
+                "e671d758e4bcaa4e"
+            ],
+            [
+                "67d55272c2b30db9"
+            ]
+        ]
+    },
+    {
+        "id": "e671d758e4bcaa4e",
+        "type": "change",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 320,
+        "wires": [
+            [
+                "54284ac9491ce48c"
+            ]
+        ]
+    },
+    {
+        "id": "67d55272c2b30db9",
+        "type": "change",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 400,
+        "wires": [
+            [
+                "54284ac9491ce48c"
+            ]
+        ]
+    },
+    {
+        "id": "22f921207571d2f0",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/mq2/gas",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 540,
+        "wires": [
+            [
+                "d645059e1dd90c7d",
+                "c2543cef5ea943c8",
+                "ae7af421871406ca",
+                "846bf46b2934544d",
+                "05a6f7aeb9130b85",
+                "ebc0bfb708a918d5"
+            ]
+        ]
+    },
+    {
+        "id": "846bf46b2934544d",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "d645059e1dd90c7d",
+        "type": "ui_gauge",
+        "z": "68567cd3aa39e20b",
+        "name": "Gas Gauge",
+        "group": "83639b235a784b8f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "1024",
+        "colors": [
+            "#f4ff5c",
+            "#e6b400",
+            "#ca3838"
+        ],
+        "seg1": "500",
+        "seg2": "700",
+        "diff": false,
+        "className": "",
+        "x": 570,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c2543cef5ea943c8",
+        "type": "ui_chart",
+        "z": "68567cd3aa39e20b",
+        "name": "Gas chart",
+        "group": "83639b235a784b8f",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#e9e216",
+            "#aec7e8",
+            "#ff7f0e",
+            "#293829",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 560,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e7e593bf0da4e31d",
+        "type": "influxdb out",
+        "z": "68567cd3aa39e20b",
+        "influxdb": "bc4ab5cb2a050021",
+        "name": "",
+        "measurement": "readings",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "Raspi Server Database",
+        "bucket": "ESP32",
+        "x": 770,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "ae7af421871406ca",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "msg.payload = [{\n    pressure: Number(msg.payload)\n},\n{\n    sensor: \"mq2\",\n    device: \"ESP32\",\n    room: \"office\"\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 660,
+        "wires": [
+            [
+                "e7e593bf0da4e31d"
+            ]
+        ]
+    },
+    {
+        "id": "05a6f7aeb9130b85",
+        "type": "switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "30",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "30",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 550,
+        "y": 840,
+        "wires": [
+            [
+                "abe7fe358e32352e",
+                "eb9e113cfe054790"
+            ],
+            [
+                "fa8b1acd68d05d66"
+            ]
+        ]
+    },
+    {
+        "id": "fa8b1acd68d05d66",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "abe7fe358e32352e",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "49aa647252e9c9c8",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "function 3",
+        "func": "msg.payload = \"High Gas Concentration detected!\";\nmsg.topic =\"High Gas Concentration detected! (from Node-RED)\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 840,
+        "wires": [
+            [
+                "fb29d0038b3d271f"
+            ]
+        ]
+    },
+    {
+        "id": "eb9e113cfe054790",
+        "type": "switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "property": "gmailMotionNotification",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 840,
+        "wires": [
+            [
+                "49aa647252e9c9c8"
+            ]
+        ]
+    },
+    {
+        "id": "fb29d0038b3d271f",
+        "type": "e-mail",
+        "z": "68567cd3aa39e20b",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": false,
+        "token": "",
+        "secure": true,
+        "tls": true,
+        "name": "maithuyetedu@gmail.com",
+        "dname": "",
+        "x": 1110,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "768f3dc6b6a56d4a",
+        "type": "ui_template",
+        "z": "68567cd3aa39e20b",
+        "group": "556687f5de090665",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"margin: 0 auto;\">\n<img src=\"https://camera.smarthomegraduation.io.vn/stream\" height=\"300px\">\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 220,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af96e23bb513d24a",
+        "type": "ui_switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "label": "Master",
+        "tooltip": "Controls All GPIO",
+        "group": "09490d389aa29afc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1150,
+        "y": 340,
+        "wires": [
+            [
+                "54284ac9491ce48c",
+                "db63204306c13a24",
+                "56ff9dca962919a6",
+                "ab3615be1e25db1c"
+            ]
+        ]
+    },
+    {
+        "id": "c7cbf9d45939d9d4",
+        "type": "ui_table",
+        "z": "68567cd3aa39e20b",
+        "group": "a83cb4ee1a8ade7d",
+        "name": "Temperature Table",
+        "order": 5,
+        "width": 6,
+        "height": 4,
+        "columns": [
+            {
+                "field": "Temperature",
+                "title": "Temperature",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Timestamp",
+                "title": "Date/Time",
+                "width": "160",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 750,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ed9a204c0da9ae2e",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "// var newMsg = { payload: {} };\n\n// // Get the existing tableData from the flow context, or initialize an empty array if it doesn't exist\n// var tableData = flow.get(\"savedData\") || [];\n// var timestamp_Humidity = new Date().toLocaleString(); // Get the current local time\n// // Add a new object to the beginning of the tableData array\n// tableData.unshift({\n//     \"Humidity\": Number(msg.payload),\n//     \"Timestamp\":  timestamp_Humidity\n// });\n\n// // Assign the updated tableData to the payload property of newMsg\n// tableData = tableData.filter(function(row) {\n//     return Object.values(row).some(function(value) {\n//         return value !== null && value !== undefined && value !== '';\n//     });\n// });\n// msg.payload = tableData;\n// flow.set(\"savedData\", tableData);\n// // Return the new message object\n// return msg;\n\n\nvar newMsg = { payload: {} };\n\n// Get the existing tableData from the flow context, or initialize an empty array if it doesn't exist\nvar tableData = flow.get(\"savedData\") || [];\nvar timestamp_Humidity = new Date().toLocaleString(); // Get the current local time\n\n// Add a new object to the beginning of the tableData array\ntableData.unshift({\n    \"Humidity\": Number(msg.payload),\n    \"Timestamp\":  timestamp_Humidity\n});\n\n// Filter out rows where all properties are null, undefined, or empty strings\nvar filteredTableData = tableData.filter(function(row) {\n    return Object.values(row).every(value => Boolean(value))\n    // Object.values(row).every(function(value) {\n    //     return value !== null && value !== undefined && value !== '';\n    // });\n});\n\n// Assign the updated tableData to the payload property of newMsg\nmsg.payload = filteredTableData;\nflow.set(\"savedData\", filteredTableData);\n\n// Return the new message object\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1600,
+        "y": 1320,
+        "wires": [
+            [
+                "b43c432dfd2d9670"
+            ]
+        ]
+    },
+    {
+        "id": "b43c432dfd2d9670",
+        "type": "ui_table",
+        "z": "68567cd3aa39e20b",
+        "group": "fe7c5bf40ec5e82a",
+        "name": "Humidity Table",
+        "order": 5,
+        "width": 6,
+        "height": 4,
+        "columns": [
+            {
+                "field": "Humidity",
+                "title": "Humidity",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Timestamp",
+                "title": "Date/Time",
+                "width": "160",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 1780,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "018a3f3f7367d155",
+        "type": "ui_table",
+        "z": "68567cd3aa39e20b",
+        "group": "c901dbb784a23449",
+        "name": "Pressure Table",
+        "order": 5,
+        "width": 6,
+        "height": 4,
+        "columns": [
+            {
+                "field": "Pressure",
+                "title": "Pressure",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Timestamp",
+                "title": "Date/Time",
+                "width": "160",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 740,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "83ea45630fa6c2bf",
+        "type": "ui_table",
+        "z": "68567cd3aa39e20b",
+        "group": "83639b235a784b8f",
+        "name": "Gas Table",
+        "order": 5,
+        "width": 6,
+        "height": 4,
+        "columns": [
+            {
+                "field": "Gas Concentration",
+                "title": "Gas Concentration",
+                "width": "",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Timestamp",
+                "title": "Date/Time",
+                "width": "160",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 720,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "c49d87072916ed98",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "var newMsg = { payload: {} };\n\n// Get the existing tableData from the flow context, or initialize an empty array if it doesn't exist\nvar tableData = flow.get(\"savedData\") || [];\nvar timestamp_Temperature = new Date().toLocaleString(); // Get the current local time\n// Add a new object to the beginning of the tableData array\ntableData.unshift({\n    \n    \"Temperature\": Number(msg.payload),\n    \"Timestamp\":  timestamp_Temperature\n});\n\n// Assign the updated tableData to the payload property of newMsg\nmsg.payload = tableData;\nflow.set(\"savedData\", tableData);\n// Return the new message object\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 260,
+        "wires": [
+            [
+                "c7cbf9d45939d9d4"
+            ]
+        ]
+    },
+    {
+        "id": "0772d71d44f14152",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "// var newMsg = { payload: {} };\n\n// // Get the existing tableData from the flow context, or initialize an empty array if it doesn't exist\n// var tableData = flow.get(\"savedData\") || [];\n// var timestamp_Humidity = new Date().toLocaleString(); // Get the current local time\n// // Add a new object to the beginning of the tableData array\n// tableData.unshift({\n//     \"Humidity\": Number(msg.payload),\n//     \"Timestamp\":  timestamp_Humidity\n// });\n\n// // Assign the updated tableData to the payload property of newMsg\n// tableData = tableData.filter(function(row) {\n//     return Object.values(row).some(function(value) {\n//         return value !== null && value !== undefined && value !== '';\n//     });\n// });\n// msg.payload = tableData;\n// flow.set(\"savedData\", tableData);\n// // Return the new message object\n// return msg;\n\n\nvar newMsg = { payload: {} };\n\n// Get the existing tableData from the flow context, or initialize an empty array if it doesn't exist\nvar tableData = flow.get(\"savedData\") || [];\nvar timestamp_Humidity = new Date().toLocaleString(); // Get the current local time\n\n// Add a new object to the beginning of the tableData array\ntableData.unshift({\n    \"Pressure\": Number(msg.payload),\n    \"Timestamp\":  timestamp_Humidity\n});\n\n// Filter out rows where all properties are null, undefined, or empty strings\nvar filteredTableData = tableData.filter(function(row) {\n    return Object.values(row).every(value => Boolean(value))\n    // Object.values(row).every(function(value) {\n    //     return value !== null && value !== undefined && value !== '';\n    // });\n});\n\n// Assign the updated tableData to the payload property of newMsg\nmsg.payload = filteredTableData;\nflow.set(\"savedData\", filteredTableData);\n\n// Return the new message object\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 1320,
+        "wires": [
+            [
+                "018a3f3f7367d155"
+            ]
+        ]
+    },
+    {
+        "id": "ebc0bfb708a918d5",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "func": "// var newMsg = { payload: {} };\n\n// // Get the existing tableData from the flow context, or initialize an empty array if it doesn't exist\n// var tableData = flow.get(\"savedData\") || [];\n// var timestamp_Humidity = new Date().toLocaleString(); // Get the current local time\n// // Add a new object to the beginning of the tableData array\n// tableData.unshift({\n//     \"Humidity\": Number(msg.payload),\n//     \"Timestamp\":  timestamp_Humidity\n// });\n\n// // Assign the updated tableData to the payload property of newMsg\n// tableData = tableData.filter(function(row) {\n//     return Object.values(row).some(function(value) {\n//         return value !== null && value !== undefined && value !== '';\n//     });\n// });\n// msg.payload = tableData;\n// flow.set(\"savedData\", tableData);\n// // Return the new message object\n// return msg;\n\n\nvar newMsg = { payload: {} };\n\n// Get the existing tableData from the flow context, or initialize an empty array if it doesn't exist\nvar tableData = flow.get(\"savedData\") || [];\nvar timestamp_gas = new Date().toLocaleString(); // Get the current local time\n\n// Add a new object to the beginning of the tableData array\ntableData.unshift({\n    \"Gas Concentration\": Number(msg.payload),\n    \"Timestamp\":  timestamp_gas\n});\n\n// Filter out rows where all properties are null, undefined, or empty strings\nvar filteredTableData = tableData.filter(function(row) {\n    return Object.values(row).every(value => Boolean(value))\n    // Object.values(row).every(function(value) {\n    //     return value !== null && value !== undefined && value !== '';\n    // });\n});\n\n// Assign the updated tableData to the payload property of newMsg\nmsg.payload = filteredTableData;\nflow.set(\"savedData\", filteredTableData);\n\n// Return the new message object\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 720,
+        "wires": [
+            [
+                "83ea45630fa6c2bf"
+            ]
+        ]
+    },
+    {
+        "id": "f76a5a608f72c963",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/door/register/keypad",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 2060,
+        "wires": [
+            [
+                "4dd525d7ed4727c6"
+            ]
+        ]
+    },
+    {
+        "id": "86f0ec5db4d17bda",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "debug esp/door/register/keypad",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "f28a553c508d708f",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/door/register/RFID",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 1980,
+        "wires": [
+            [
+                "e837007d463aa0f3"
+            ]
+        ]
+    },
+    {
+        "id": "06fa2476e86324c8",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "debug topic esp/door/register/RFID",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "98b0fa44afe70d91",
+        "type": "influxdb out",
+        "z": "68567cd3aa39e20b",
+        "influxdb": "bc4ab5cb2a050021",
+        "name": "",
+        "measurement": "readings",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "Raspi Server Database",
+        "bucket": "ESP32",
+        "x": 790,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "e538cf91562d8b1c",
+        "type": "influxdb out",
+        "z": "68567cd3aa39e20b",
+        "influxdb": "bc4ab5cb2a050021",
+        "name": "",
+        "measurement": "readings",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "Raspi Server Database",
+        "bucket": "ESP32",
+        "x": 790,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1a4eb1596185c975",
+        "type": "switch",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1810,
+        "y": 100,
+        "wires": [
+            [
+                "670e1a7e29d9bc7a"
+            ],
+            [
+                "f675892e9bf0401e"
+            ]
+        ]
+    },
+    {
+        "id": "670e1a7e29d9bc7a",
+        "type": "change",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2020,
+        "y": 80,
+        "wires": [
+            [
+                "fce2369d696ed52c"
+            ]
+        ]
+    },
+    {
+        "id": "f675892e9bf0401e",
+        "type": "change",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2020,
+        "y": 120,
+        "wires": [
+            [
+                "fce2369d696ed52c"
+            ]
+        ]
+    },
+    {
+        "id": "79c44223bba469b5",
+        "type": "influxdb out",
+        "z": "68567cd3aa39e20b",
+        "influxdb": "bc4ab5cb2a050021",
+        "name": "",
+        "measurement": "readings",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "Raspi Server Database",
+        "bucket": "ESP32",
+        "x": 2030,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "58dd9881c2c5e06b",
+        "type": "influxdb out",
+        "z": "68567cd3aa39e20b",
+        "influxdb": "bc4ab5cb2a050021",
+        "name": "",
+        "measurement": "readings",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "Raspi Server Database",
+        "bucket": "ESP32",
+        "x": 2050,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "6ad4a403282a06b8",
+        "type": "influxdb out",
+        "z": "68567cd3aa39e20b",
+        "influxdb": "bc4ab5cb2a050021",
+        "name": "",
+        "measurement": "readings",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "Raspi Server Database",
+        "bucket": "ESP32",
+        "x": 2070,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "4b20b7626f6afdde",
+        "type": "influxdb out",
+        "z": "68567cd3aa39e20b",
+        "influxdb": "bc4ab5cb2a050021",
+        "name": "",
+        "measurement": "readings",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "Raspi Server Database",
+        "bucket": "ESP32",
+        "x": 1830,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "ba760a4c9e5cbe72",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/door/register/fingerprint",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 1800,
+        "wires": [
+            [
+                "f850f494fa0ecbb5",
+                "923bf6eb91c3c31d"
+            ]
+        ]
+    },
+    {
+        "id": "5f38f29f92127bd4",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/door/register/face",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 1900,
+        "wires": [
+            [
+                "d50cdc2695bc40d7"
+            ]
+        ]
+    },
+    {
+        "id": "d50cdc2695bc40d7",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "debug esp/door/register/face",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "9a3f0aab177aca9b",
+        "type": "mqtt in",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "topic": "esp/door/check/#",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "0776bdc38d698101",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 840,
+        "y": 1560,
+        "wires": [
+            [
+                "365aa012be9680ce"
+            ]
+        ]
+    },
+    {
+        "id": "365aa012be9680ce",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "f850f494fa0ecbb5",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "function 4",
+        "func": "// Đầu vào: msg.payload là chuỗi JSON\nvar jsonString = msg.payload;\n\ntry {\n    // Chuyển đổi chuỗi JSON thành đối tượng JavaScript\n    var jsonObject = JSON.parse(jsonString);\n\n    // Truy cập các thuộc tính của đối tượng\n    var id = jsonObject.id;\n    var confidence = jsonObject.confidence;\n    var area = jsonObject.area;\n    var scale = jsonObject.scale;\n    var sensorType = jsonObject.type;\n\n    // Thực hiện các thao tác xử lý với thông tin thu được\n\n    // Ví dụ: Hiển thị thông tin trong log\n    console.log(\"ID:\", id);\n    console.log(\"Confidence:\", confidence);\n    console.log(\"Area:\", area);\n    console.log(\"Scale:\", scale);\n    console.log(\"Sensor Type:\", sensorType);\n\n    // Gửi kết quả xử lý đến đầu ra\n    msg.payload = jsonObject;\n    return msg;\n} catch (error) {\n    // Xử lý lỗi nếu có\n    console.error(\"Error parsing JSON:\", error.message);\n    return null; // hoặc trả về một giá trị thích hợp khi có lỗi\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1800,
+        "wires": [
+            [
+                "972cd577be0972ab",
+                "be0d5b6978f45a35"
+            ]
+        ]
+    },
+    {
+        "id": "4436847bd6c9efc8",
+        "type": "sqlite",
+        "z": "68567cd3aa39e20b",
+        "mydb": "84945b1882ef239f",
+        "sqlquery": "msg.topic",
+        "sql": "const id = msg.payload.id;\nconst template = msg.payload.template;\n\n",
+        "name": "Database",
+        "x": 960,
+        "y": 1840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "972cd577be0972ab",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "function 6",
+        "func": "// Lấy ID và template từ payload\nconst id = msg.payload.id;\nconst template = msg.payload.template;\nvar newMsg = {\n \"topic\": \"INSERT INTO FINGERPRINT VALUES ( \" + id + \", \" + template + \")\"\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 1800,
+        "wires": [
+            [
+                "4436847bd6c9efc8",
+                "9ebde646fdb9cb8f"
+            ]
+        ]
+    },
+    {
+        "id": "923bf6eb91c3c31d",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "debug topic res finger",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "be0d5b6978f45a35",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "debug lọc json",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "9ebde646fdb9cb8f",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "kết quả json",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "392fc3fa693a6f57",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "debug from sqlite",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "e756dd2a58443665",
+        "type": "inject",
+        "z": "68567cd3aa39e20b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 1680,
+        "wires": [
+            [
+                "5d3c01e38f419665"
+            ]
+        ]
+    },
+    {
+        "id": "e837007d463aa0f3",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "function 7",
+        "func": "// Lấy ID và template từ payload\nconst uid = msg.payload;\nvar newMsg = {\n \"topic\": \"INSERT INTO RFID (UID) VALUES ( \" + uid + \")\"\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 1980,
+        "wires": [
+            [
+                "4436847bd6c9efc8",
+                "06fa2476e86324c8"
+            ]
+        ]
+    },
+    {
+        "id": "4dd525d7ed4727c6",
+        "type": "function",
+        "z": "68567cd3aa39e20b",
+        "name": "function 8",
+        "func": "// Lấy ID và template từ payload\nconst uid = msg.payload;\nvar newMsg = {\n \"topic\": \"INSERT INTO PASSWORD VALUES ( \" + uid + \")\"\n}\n\nreturn newMsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 2060,
+        "wires": [
+            [
+                "4436847bd6c9efc8",
+                "86f0ec5db4d17bda"
+            ]
+        ]
+    },
+    {
+        "id": "5d3c01e38f419665",
+        "type": "sqlite",
+        "z": "68567cd3aa39e20b",
+        "mydb": "84945b1882ef239f",
+        "sqlquery": "fixed",
+        "sql": "CREATE TABLE IF NOT EXISTS RFID1 (  ID_RFID INTEGER PRIMARY KEY AUTOINCREMENT,  UID TEXT NOT NULL);\nCREATE TABLE IF NOT EXISTS FINGERPRINT (  ID INTEGER PRIMARY KEY AUTOINCREMENT,  UID0 INTEGER NOT NULL,  UID1 INTEGER NOT NULL,  UID2 INTEGER NOT NULL,  UID3 INTEGER NOT NULL,  UID4 INTEGER NOT NULL,  UID5 INTEGER NOT NULL,  UID6 INTEGER NOT NULL,  UID7 INTEGER NOT NULL,  UID8 INTEGER NOT NULL,  UID9 INTEGER NOT NULL,  UID10 INTEGER NOT NULL,  UID11 INTEGER NOT NULL,  UID12 INTEGER NOT NULL,  UID13 INTEGER NOT NULL,  UID14 INTEGER NOT NULL,  UID15 INTEGER NOT NULL,  UID16 INTEGER NOT NULL,  UID17 INTEGER NOT NULL,  UID18 INTEGER NOT NULL,  UID19 INTEGER NOT NULL,  UID20 INTEGER NOT NULL,  UID21 INTEGER NOT NULL,  UID22 INTEGER NOT NULL,  UID23 INTEGER NOT NULL,  UID24 INTEGER NOT NULL,  UID25 INTEGER NOT NULL,  UID26 INTEGER NOT NULL,  UID27 INTEGER NOT NULL,  UID28 INTEGER NOT NULL,  UID29 INTEGER NOT NULL);\nCREATE TABLE IF NOT EXISTS PASSWORD (  ID INTEGER PRIMARY KEY AUTOINCREMENT,  PASSWORD INTEGER NOT NULL);\n\n\n\n\n",
+        "name": "Databse ",
+        "x": 380,
+        "y": 1580,
+        "wires": [
+            [
+                "1eca3fcec363e27f"
+            ]
+        ]
+    },
+    {
+        "id": "1eca3fcec363e27f",
+        "type": "debug",
+        "z": "68567cd3aa39e20b",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "0776bdc38d698101",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a83cb4ee1a8ade7d",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "54cd6499810dea3d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fe7c5bf40ec5e82a",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "54cd6499810dea3d",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c901dbb784a23449",
+        "type": "ui_group",
+        "name": "Pressure",
+        "tab": "54cd6499810dea3d",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "09490d389aa29afc",
+        "type": "ui_group",
+        "name": "Controls",
+        "tab": "54cd6499810dea3d",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bc4ab5cb2a050021",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "test",
+        "name": "Influx Database",
+        "usetls": true,
+        "tls": "d50d0c9f.31e858",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "aa3f6f717097aced",
+        "type": "ui_group",
+        "name": "Notifications",
+        "tab": "53b6598134a22967",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "83639b235a784b8f",
+        "type": "ui_group",
+        "name": "Gas",
+        "tab": "54cd6499810dea3d",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "556687f5de090665",
+        "type": "ui_group",
+        "name": "Surveillance Camera",
+        "tab": "53b6598134a22967",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": "template"
+    },
+    {
+        "id": "84945b1882ef239f",
+        "type": "sqlitedb",
+        "db": "/home/pi/Desktop/sqlite/user.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "54cd6499810dea3d",
+        "type": "ui_tab",
+        "name": "Home Control",
+        "icon": "",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d50d0c9f.31e858",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false
+    },
+    {
+        "id": "53b6598134a22967",
+        "type": "ui_tab",
+        "name": "Security",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
